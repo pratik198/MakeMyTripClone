@@ -47,11 +47,6 @@ const Header1 = () => {
             <span className="user-name">Login Or Create Account</span>
             <BiChevronDown className="down-arrow"/>
           </div>
-          <div className="region">
-            <img src={india} className="cropped-img" alt="..."/>
-            <span className="region-details">IND | ENG | INR</span>
-            <BiChevronDown className="down-arrow"/>
-          </div>
         </div>
       </div>
     </section>

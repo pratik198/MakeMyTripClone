@@ -4,16 +4,17 @@ import Header1 from "./Components/Header1/Header1";
 import Header2 from "./Components/Header2/Header2";
 import Hotelcard from "./Components/HotelCard/Hotelcard";
 import Traincard from "./Components/Traincard/Traincard";
+import Main from "./Components/Main/Main";
 
 function App() {
   return (
     <div className="App">
-      <Traincard/>
+      <Main/>
+      {/* <Traincard/>
       <FlightCard/>
       <Hotelcard/>
-      <Header/>
-      {/* <Header1/>
-      <Header2/> */}
+      <Header/>  */}
+     
     </div>
   );
 }
