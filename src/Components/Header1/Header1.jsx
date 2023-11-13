@@ -8,6 +8,8 @@ import bag from "../../Assets/img/bag.png";
 import makeMyTrip2 from '../../Assets/img/makemytrip2.svg';
 import india from '../../Assets/img/india.png.png'
 import { BiChevronDown } from "react-icons/bi";
+
+
 const Header1 = () => {
   return (
     <section className="header1-wrapper">
@@ -43,9 +45,9 @@ const Header1 = () => {
           </div>
 
           <div className="login">
-            <img src={makeMyTrip2} className="cropped-img" alt="..."/>
+            <img src={makeMyTrip2} className="cropped-img" alt="..." />
             <span className="user-name">Login Or Create Account</span>
-            <BiChevronDown className="down-arrow"/>
+            <BiChevronDown className="down-arrow" />
           </div>
         </div>
       </div>

@@ -5,15 +5,21 @@ import Header2 from "./Components/Header2/Header2";
 import Hotelcard from "./Components/HotelCard/Hotelcard";
 import Traincard from "./Components/Traincard/Traincard";
 import Main from "./Components/Main/Main";
+import SignUp from "./Components/SignUp/SignUp";
+import LogIn from "./Components/LogIn/LogIn";
 
 function App() {
   return (
     <div className="App">
-      <Main/>
-      {/* <Traincard/>
+      {/* <Main/>
+      <Traincard/>
       <FlightCard/>
-      <Hotelcard/>
-      <Header/>  */}
+      <Hotelcard/> */}
+      {/* <Traincard/> */}
+      <LogIn/>
+      {/* <SignUp/> */}
+      {/* <LogIn/> */}
+      {/* <Header/>  */}
      
     </div>
   );

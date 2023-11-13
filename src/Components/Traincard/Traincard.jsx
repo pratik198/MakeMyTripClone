@@ -8,12 +8,12 @@ function Traincard() {
         const day = "Fri"; 
     
         const ApisURL = `https://academics.newtonschool.co/api/v1/bookingportals/train?search={"source":"${source}","destination":"${destination}"}&day=${day}`;
-    
+    console.log("Train card is clicked")
         try {
             const response = await fetch(ApisURL, {
                 method: "GET",
                 headers: {
-                    projectID: "yourProjectID", 
+                    projectID: "f104bi07c490", 
                     'Content-Type': 'application/json',
                 },
             });
