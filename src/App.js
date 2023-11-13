@@ -7,6 +7,7 @@ import Traincard from "./Components/Traincard/Traincard";
 import Main from "./Components/Main/Main";
 import SignUp from "./Components/SignUp/SignUp";
 import LogIn from "./Components/LogIn/LogIn";
+import Booking from "./Components/CheckOut/Booking";
 
 function App() {
   return (
@@ -16,7 +17,9 @@ function App() {
       <FlightCard/>
       <Hotelcard/> */}
       {/* <Traincard/> */}
-      <LogIn/>
+      {/* <LogIn/> */}
+<Booking/>
+<Hotelcard/>
       {/* <SignUp/> */}
       {/* <LogIn/> */}
       {/* <Header/>  */}
