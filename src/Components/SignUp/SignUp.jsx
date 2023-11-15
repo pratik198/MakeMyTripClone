@@ -17,8 +17,8 @@ function SignUp() {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        name: 'pratik123458',
-                        email: 'pratik123458@gmail.com',
+                        name: 'pratik1234589',
+                        email: 'pratik1234589@gmail.com',
                         password: '12345',
                         appType: 'bookingportals'
                     })
@@ -30,8 +30,8 @@ function SignUp() {
             const data = await response.json();
             console.log(data);
             if (response.ok) {
-                const token = data.token;
-                localStorage.setItem('token', token);
+                // const token = data.token;
+                // localStorage.setItem('token', token);
                 console.log("sign up successful")
             }
         } catch (error) {

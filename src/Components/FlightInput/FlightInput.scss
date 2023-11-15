@@ -1,0 +1,25 @@
+.flight-input-section{
+    // display: flex; 
+    height: 48vh;
+    width: 88%;
+    background-color: #fff;
+    position: relative;
+    bottom: 35em;
+    left: 6%;
+    border-radius: 10px;
+    // justify-content: center;
+
+    .way-container{
+        display: flex;
+        flex-direction: row;
+        height: 20px;
+        width: 100%;
+        background-color: red;
+        ul{
+            height: 10px;
+            width: 10px;
+            background-color: chartreuse;
+        }
+    }
+}
+

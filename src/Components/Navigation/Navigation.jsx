@@ -48,10 +48,10 @@ const Navigation = () => {
             <VscGraphLine className="icon" />
             <span>Forex</span>
           </div>
-          <div className="nav-link">
+          {/* <div className="nav-link">
             <MdHiking className="icon" />
             <span>Activities</span>
-          </div>
+          </div> */}
         </div>
       </section>
     );

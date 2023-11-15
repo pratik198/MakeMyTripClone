@@ -8,21 +8,21 @@ import Main from "./Components/Main/Main";
 import SignUp from "./Components/SignUp/SignUp";
 import LogIn from "./Components/LogIn/LogIn";
 import Booking from "./Components/CheckOut/Booking";
+import FlightInput from "./Components/FlightInput/FlightInput";
 
 function App() {
   return (
     <div className="App">
-      {/* <Main/>
+      <Main/>
       <Traincard/>
       <FlightCard/>
-      <Hotelcard/> */}
-      {/* <Traincard/> */}
-      {/* <LogIn/> */}
-<Booking/>
-<Hotelcard/>
-      {/* <SignUp/> */}
-      {/* <LogIn/> */}
-      {/* <Header/>  */}
+      <Hotelcard/> 
+     <Traincard/> 
+      <LogIn/> 
+       <FlightInput/>
+       <SignUp/>
+      <LogIn/>
+     
      
     </div>
   );

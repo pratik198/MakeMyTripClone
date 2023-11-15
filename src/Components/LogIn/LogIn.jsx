@@ -13,7 +13,7 @@ function Login() {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    email: 'pratik127@gmail.com',
+                    email: 'pratik1234589@gmail.com',
                     password: '12345',
                     appType: 'bookingportals',
                 }),
