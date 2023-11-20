@@ -9,7 +9,7 @@ import SignUp from "./Components/SignUp/SignUp";
 import LogIn from "./Components/LogIn/LogIn";
 import Booking from "./Components/CheckOut/Booking";
 import FlightInput from "./Components/FlightInput/FlightInput";
-
+import Calendar from './../src/Calender/Calender';
 function App() {
   return (
     <div className="App">
@@ -18,6 +18,7 @@ function App() {
       <FlightCard/>
       <Hotelcard/> 
      <Traincard/> 
+     {/* <Calendar/> */}
       <LogIn/> 
        <FlightInput/>
        <SignUp/>
