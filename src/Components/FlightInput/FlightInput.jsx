@@ -5,9 +5,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
 
 function FlightInput() {
-  // const [startDate, setStartDate] = useState(new Date());
   const [selectedDay, setSelectedDay] = useState("");
-  const formattedDay = moment(selectedDay).format("dddd").substring(0,3);
+  const formattedDay = moment(selectedDay).format("dddd").substring(0, 3);
   console.log(formattedDay);
   return (
     <div className="flight-input-section">
