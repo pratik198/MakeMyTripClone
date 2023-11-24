@@ -11,12 +11,19 @@ function FlightInput() {
   return (
     <div className="flight-input-section">
       <div className="flight-input">
-        <div className="first-sec">
-          <ul>
-            <li>One Way</li>
-            <li>Round Trip</li>
-            <li>Multi City</li>
-          </ul>
+        <div className="top-sec">
+          <div>
+            <input type="radio" name="type" id="oneway" />
+            <label htmlFor="oneway">One Way</label>
+          </div>
+          <div>
+            <input type="radio" name="type" id="roundtrip" />
+            <label htmlFor="roundtrip">Round Trip</label>
+          </div>
+          <div>
+            <input type="radio" name="type" id="multicity" />
+            <label htmlFor="multicity">Multi City</label>
+          </div>
         </div>
         <DatePicker
           selected={selectedDay}

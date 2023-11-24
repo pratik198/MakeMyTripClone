@@ -1,14 +1,14 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 .header1-wrapper {
-    height: 62px;
-    width: 100%;
-    z-index: 9999;
-    position: absolute;
-    // background-color: black;
+  height: 62px;
+  width: 100%;
+  z-index: 9999;
+  position: absolute;
+  // background-color: black;
 
   .header1 {
     height: 100%;
@@ -26,6 +26,8 @@
       justify-content: center;
       img {
         height: 70%;
+        position: relative;
+        right: 11em;
       }
     }
     .right-sec {

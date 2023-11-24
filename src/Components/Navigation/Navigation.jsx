@@ -10,20 +10,21 @@ import {
 import { RiHotelLine } from 'react-icons/ri';
 import { AiOutlineCar } from 'react-icons/ai';
 import { VscGraphLine } from 'react-icons/vsc';
+import { Link } from 'react-router-dom';
 
 
 const Navigation = () => {
     return (
       <section className="navigation-wrapper">
         <div className="navigation">
-          <div className="nav-link">
+          <Link to="/" className="nav-link">
             <MdOutlineFlight className="icon" />
             <span>Flights</span>
-          </div>
-          <div className="nav-link">
+          </Link>
+          <Link to="/hotels" className="nav-link">
             <RiHotelLine className="icon" />
             <span>Hotels</span>
-          </div>
+          </Link>
           <div className="nav-link">
             <MdOutlineMapsHomeWork className="icon" />
             <span>Homestays</span>
@@ -32,10 +33,10 @@ const Navigation = () => {
             <RiHotelLine className="icon" />
             <span>Holiday Packages</span>
           </div>
-          <div className="nav-link">
+          <Link to="/trains" className="nav-link">
             <FaTrain className="icon" />
             <span>Trains</span>
-          </div>
+          </Link>
           <div className="nav-link">
             <MdDirectionsBus className="icon" />
             <span>Buses</span>
