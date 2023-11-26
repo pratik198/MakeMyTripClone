@@ -12,14 +12,14 @@ import {
 import { RiHotelLine } from "react-icons/ri";
 import { AiOutlineCar } from "react-icons/ai";
 import { VscGraphLine } from "react-icons/vsc";
-
+import { Link } from "react-router-dom";
 const Header2 = () => {
   return (
     <section className="header2-wrapper">
       <div className="header2">
-        <div className="logo" to={"/"}>
+        <Link className="logo" to={"/hotels"}>
           <img src={logo} alt="logo-mmt" />
-        </div>
+        </Link>
         <section className="navigation-wrapper-2">
           <div className="navigation">
             <div className="nav-link active">

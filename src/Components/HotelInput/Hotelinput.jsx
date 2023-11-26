@@ -3,13 +3,14 @@ import { BiChevronDown } from "react-icons/bi";
 import date from "date-and-time";
 import "./Hotelinput.scss";
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import Main from "../Main/Main";
 
 
 const HotelInputBox = () => {
   const navigate = useNavigate();
   const [place, setPlace] = useState(null);
   // const [day,setDay ] = useState(null);
-
+const [hotelData,setHotelData] =useState(null);
  function handelplace(e){
   console.log(e.target.value);
   setPlace(e.target.value);
@@ -30,9 +31,12 @@ const HotelInputBox = () => {
       console.log(response)
       const data = await response.json();
         console.log(data);
+        console.log(data?.data?.hotels)
+        setHotelData(data?.data?.hotels)
+        navigate("/hotelpage", { state: { hotelData11: data?.data?.hotels } });
       if (response.ok) {
         // console.log(response);
-        navigate("/hotelcards");
+        // navigate("/hotelcards");
 
         
       } else {
@@ -73,6 +77,8 @@ const HotelInputBox = () => {
   };
 
   return (
+    <div>
+    <Main/>
     <section className="input-box-wrapper">
       <div className="input-box">
         <div className="input-wrapper">
@@ -230,6 +236,7 @@ const HotelInputBox = () => {
         </div>
       </div>
     </section>
+    </div>
   );
 };
 

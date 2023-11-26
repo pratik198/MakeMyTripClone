@@ -1,7 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header2 from '../../Header2/Header2'
 import './Hotelpage.scss'
-function Hotelpage() {
+import { useNavigate,useLocation } from 'react-router'
+import Hotelcard from '../../HotelCard/Hotelcard';
+function Hotelpage(props) {
+  const navigate = useNavigate();
+
+  const location = useLocation();
+
+  const hotelData1 = location.state?.hotelData11 || [];
+  
+  useEffect(() => {
+  
+  console.log("Pratik");
+  
+  console.log(hotelData1);
+  
+  // Apicall();
+  
+  }, []);
+
   return (
       <div>
     <Header2/>
@@ -19,6 +37,24 @@ function Hotelpage() {
             cards
         </div>
     </div>
+    {hotelData1.map((item) => (
+<div>
+<Hotelcard
+
+image={item.images}
+
+name={item.name}
+
+rating={item.rating}
+
+/>
+
+</div>
+
+))}
+
+
+
     </div>
   )
 }
