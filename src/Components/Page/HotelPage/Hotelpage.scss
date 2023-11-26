@@ -1,3 +1,22 @@
-.hotelpage-header{
-    
+.hotelpage{
+    position: relative;
+    top: 61px;
+    height: 100vh;
+    width: 100%;
+    .page_header-section{
+        height: 8em;
+        width: 100%;
+        box-shadow: 0 2px 5px #2525254b;
+        background: linear-gradient(180deg,#051320,#0c2540)!important;
+    }
+    .hotel-cards-details{
+        background-color: white;
+        width: 47%;
+        height: 15em;
+        position: relative;
+        left: 29%;
+        top: 7px;
+        border-radius: 19px;
+        box-shadow: 0 2px 5px #2525254b;
+    }
 }
