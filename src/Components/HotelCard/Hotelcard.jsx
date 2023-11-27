@@ -31,6 +31,7 @@ function Hotelcard(props) {
         <div className="hotel__rating">
          <p>{props.rating}</p>
          <p>{props.price}</p>
+         <p>{props.guest}</p>
         </div>
       </div>
     </div>
