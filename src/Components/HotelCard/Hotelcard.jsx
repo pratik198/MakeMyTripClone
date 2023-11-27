@@ -3,35 +3,42 @@ import { useEffect } from "react";
 import "./Hotelcard.scss";
 import Header2 from "../Header2/Header2";
 import Rating from "./Rating";
+import ratingRemark from "../../Utils/Utils";
 function Hotelcard(props) {
-  useEffect(()=>{
-      console.log(props.image[0])
-      console.log(props.image[1])
-      console.log(props.image[2])
-      console.log(props.name)
-      console.log(props.rating)
-      console.log(props.price)
-      console.log(props.guest)
-      
-  },[])
+  useEffect(() => {
+    console.log(props.image[0]);
+    console.log(props.image[1]);
+    console.log(props.image[2]);
+    console.log(props.name);
+    console.log(props.rating);
+    console.log(props.cost);
+    console.log(props.unmarriedCouplesAllowed);
+    console.log(props.tax);
+    console.log(props.discount);
+  }, []);
   return (
     <div>
       <Header2 />
       <div className="hotel__cards">
         <div className="hotel__img">
-          <img className="imgs-hotels" src={props.image[0]} alt=".."/>
-         
+          <img className="imgs-hotels" src={props.image[0]} alt=".." />
         </div>
         <div className="hotel__name">
-          <h2>{props.name}</h2>
-          <div>
-          <Rating star={props.rating} />
+          <p>{props.name}</p>
+          {props.unmarriedCouplesAllowed &&
+          <div className="couple-frnd">
+          <p className="cpl-frndly">Couple Friendly</p>
+          </div> }
+          <div className="rating-star">
+            <Rating star={props.rating} />
           </div>
         </div>
         <div className="hotel__rating">
-         <p>{props.rating}</p>
-         <p>{props.price}</p>
-         <p>{props.guest}</p>
+          <p>{ratingRemark(props.rating)}</p>
+          <p>{props.rating}</p>
+          <p>{props.cost}</p>
+          <p>{props.tax}</p>
+          <p>{props.guest}</p>
         </div>
       </div>
     </div>

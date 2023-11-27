@@ -9,10 +9,10 @@
   border: 1px solid #c9c2c2;
   border-radius: 5px;
   transition: border-color 0.1s;
-  margin-bottom: 1em; 
-  
+  margin-bottom: 1em;
+
   &:hover {
-    border-color:#2a87d3; /* Change border color on hover */
+    border-color: #2a87d3; /* Change border color on hover */
   }
   .hotel__img {
     // background-color: black;
@@ -22,10 +22,10 @@
     top: 10%;
     left: 2%;
     border-radius: 4px;
-        .imgs-hotels {
-          width: 100%;
-    height: 100%;
-        }
+    .imgs-hotels {
+      width: 100%;
+      height: 100%;
+    }
   }
   .hotel__name {
     // background-color: red;
@@ -34,9 +34,39 @@
     left: 3em;
     width: 41%;
     display: flex;
+    p {
+      position: relative;
+      top: 1em;
+      font-size: 22px;
+      font-family: lato,sans-serif;
+      font-weight: bold;
+    }
+    .couple-frnd{
+      width: 110px;
+      height: 20px;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      top: 5em;
+      border-radius: 4px;
+      border: 1px solid gray;
+      align-content: center;
+      /* align-items: center; */
+      color: gray;
+      
+      .cpl-frndly{
+        font-weight: lighter;
+        font-size: 14px;
+        position: initial;
+      }
+    }
+    .rating-star {
+      position: relative;
+      top: 23px;
+      left: 2%;
+    }
   }
-  .hotel__rating{
-    
+  .hotel__rating {
     height: 15px;
     position: relative;
     left: 4em;

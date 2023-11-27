@@ -8,11 +8,13 @@ import FlightCard from '../Components/FlightCard/FlightCard';
 import Hotelcard from '../Components/HotelCard/Hotelcard';
 import FlightInput from '../Components/FlightInput/FlightInput';
 import Hotelpage from '../Components/Page/HotelPage/Hotelpage';
+import HotelDetails from '../Components/HotelDetails/HotelDetails';
 function Router() {
   return (
     <BrowserRouter>
       <Routes>
       <Route path='/' element={<FlightInput/>}/>
+      <Route path="/hoteldetails" element={<HotelDetails/>}/>
         <Route path='/hotelpage' element={<Hotelpage/>}/>
         <Route path='/hotels' element={<Hotelinput />} /> 
         <Route path='/trains' element={<Train/>} />

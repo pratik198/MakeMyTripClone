@@ -26,7 +26,6 @@ const [hotelData,setHotelData] =useState(null);
         headers: {
           projectID: "f104bi07c490",
         },
-        // body:JSON.stringify({"day":"51"})
       });
       console.log(response)
       const data = await response.json();
@@ -35,10 +34,7 @@ const [hotelData,setHotelData] =useState(null);
         setHotelData(data?.data?.hotels)
         navigate("/hotelpage", { state: { hotelData11: data?.data?.hotels } });
       if (response.ok) {
-        // console.log(response);
-        // navigate("/hotelcards");
-
-        
+   
       } else {
         console.error("Error while data fetching");
       }
