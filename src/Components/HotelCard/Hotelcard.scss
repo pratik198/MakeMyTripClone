@@ -1,14 +1,26 @@
 .hotel__cards {
+  // display: flex;
+  // // height: 15em;
+  // height: 18em;
+  // width: 69%;
+  // position: relative;
+  // bottom: 26em;
+  // left: 24%;
+  // border: 1px solid #c9c2c2;
+  // border-radius: 5px;
+  // transition: border-color 0.1s;
+  // margin-bottom: 1em;
   display: flex;
-  height: 15em;
-  width: 69%;
-  position: relative;
-  bottom: 26em;
-  left: 24%;
-  border: 1px solid #c9c2c2;
-  border-radius: 5px;
-  transition: border-color 0.1s;
-  margin-bottom: 1em;
+    height: 279px;
+    width: 69%;
+    position: relative;
+    bottom: 26em;
+    left: 24%;
+    border: 1px solid #c9c2c2;
+    border-radius: 5px;
+    transition: border-color 0.1s;
+    margin-bottom: 1em;
+    border-radius: 5px;
   &:hover {
     border-color: #2a87d3;
   }
@@ -115,18 +127,18 @@
     .rating_remark{
       width: 100px;
       position: relative;
-      top: 7%;
+      top: 15px;
       left: 21%;
       display: flex;
       justify-content: right;
       .remark{
-        color: #0d4dc3;;
+        color: #0b58b4;;
     font-weight: bolder;
     font-size: 21px;
       }
     }
     .rating-div{
-      background-color: #1d5d90;
+      background-color: #0b58b4;
       width: 34px;
       height: 21px;
       border-radius: 4px;
@@ -178,5 +190,21 @@
       }
     }
 
+  }
+  .footer_offer{
+    background: #d1f8e6;
+    height: 38px;
+    position: absolute;
+    top: 239px;
+    width: 100%;
+    border-radius: 6px;
+    .lines-discount {
+      color: #1a7971;
+    font-weight: 600;
+    font-size: 14px;
+    position: relative;
+    top: 11px;
+    left: 17px;
+    }
   }
 }

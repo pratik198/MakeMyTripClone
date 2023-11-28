@@ -70,6 +70,11 @@ function Hotelcard(props) {
             <p className="footer">Login to Book Now & Pay Later!</p>
           </div>
         </div>
+        <div className="footer_offer">
+          <p className="lines-discount">
+            Exclusive Offer on instant book.Get INR {props.tax} Off{" "}
+          </p>
+        </div>
       </div>
     </div>
   );
