@@ -82,14 +82,27 @@
       height: 55px;
       width: 94%;
       position: absolute;
-      top: 106px;
+      top: 121px;
       
       .hotel-reviews-line{
-        top: 12px;
+        top: 44px;
         font-weight: lighter;
         font-size: 13px;
         color: #8b572a;
         width: 235px;
+      }
+    }
+    .free-cancellation{
+  height: 23px;
+  position: absolute;
+  top: 7em;
+  width: 97%;
+      .line-free{
+        font-weight: normal;
+        font-size: 13px;
+        width: 340px;
+        height: 12px;
+        color: #00a19c;
       }
     }
   }
@@ -129,6 +142,39 @@
         font-weight: bold;
         text-align: center;
         margin-top: 2px;
+      }
+    }
+    .price_hotel{
+      position: relative;
+      left: 44%;
+      top: 46px;
+      width: 99px;
+      height: 141px;
+      text-align-last: end;
+      .base-price{
+        text-decoration: line-through;
+        font-size: 14px;
+        color: gray;
+      }
+      .cost{
+        font-weight: bolder;
+        font-size: 29px;
+      }
+      .tax{
+        width: 134px;
+        color: gray;
+        position: relative;
+        right: 32px;
+        font-size: 13px;
+      }
+      .footer{
+            color: #0084ff;
+            width: 218px;
+            font-size: 13px;
+            position: relative;
+            right: 8em;
+            top: 3em;
+            font-weight: bolder;
       }
     }
 

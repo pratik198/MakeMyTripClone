@@ -17,6 +17,8 @@ function Hotelcard(props) {
     console.log(props.unmarriedCouplesAllowed);
     console.log(props.tax);
     console.log(props.discount);
+    console.log(props.price);
+    console.log(props.cancelationPolicy);
   }, []);
   return (
     <div>
@@ -43,6 +45,9 @@ function Hotelcard(props) {
             <Rating star={props.rating} />
           </div>
 
+          <div className="free-cancellation">
+            <p className="line-free">&#x2713;{props.cancelationPolicy}</p>
+          </div>
           <div className="hotel_reviews">
             <p className="hotel-reviews-line">{reviews(props.rating)}</p>
           </div>
@@ -54,9 +59,16 @@ function Hotelcard(props) {
           <div className="rating-div">
             <p className="rating__color">{props.rating}</p>
           </div>
-          <p>{props.cost}</p>
-          <p>{props.tax}</p>
-          <p>{props.guest}</p>
+          <div className="price_hotel">
+            <p className="base-price">&#8377; {props.price.toLocaleString()}</p>
+            <p className="cost">&#8377; {props.cost.toLocaleString()}</p>
+            <p className="tax">
+              &#43; &#8377; {props.tax.toLocaleString()} taxes & fees <br />
+              Per Night
+            </p>
+            <p>{props.guest}</p>
+            <p className="footer">Login to Book Now & Pay Later!</p>
+          </div>
         </div>
       </div>
     </div>
