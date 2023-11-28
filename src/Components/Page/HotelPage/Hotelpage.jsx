@@ -40,7 +40,7 @@ const [hotelDetails, setHotelDetails] =useState(null);
     console.log("Pratik");
 
     console.log(hotelData1);
-    getHotelDetails();
+    // getHotelDetails();
 
     // Apicall();
   }, []);

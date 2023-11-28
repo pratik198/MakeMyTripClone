@@ -5,45 +5,56 @@
   position: relative;
   bottom: 26em;
   left: 24%;
-  // box-shadow: 0 2px 5px #2525254b;
   border: 1px solid #c9c2c2;
   border-radius: 5px;
   transition: border-color 0.1s;
   margin-bottom: 1em;
-
   &:hover {
-    border-color: #2a87d3; /* Change border color on hover */
+    border-color: #2a87d3;
   }
   .hotel__img {
-    // background-color: black;
     height: 9em;
     width: 30%;
     position: relative;
-    top: 10%;
     left: 2%;
     border-radius: 4px;
+    top: 7%;
     .imgs-hotels {
-      width: 100%;
+      border-radius: 6px;
+      width: 98%;
       height: 100%;
+    }
+    .small-pic{
+
+      .small-img-hotels{
+        position: relative;
+        height: 54px;
+        width: 65px;
+        top: 4px;
+        margin-right: 4px;
+        border-radius: 5px;
+      }
     }
   }
   .hotel__name {
     // background-color: red;
     position: relative;
     height: 100%;
-    left: 3em;
+    left: 2em;
     width: 41%;
     display: flex;
+    border-right: 1px solid #cbc9c9;
     p {
       position: relative;
       top: 1em;
       font-size: 22px;
       font-family: lato,sans-serif;
       font-weight: bold;
+      width: 58%;
     }
     .couple-frnd{
-      width: 110px;
-      height: 20px;
+      width: 97px;
+      height: 21px;
       position: absolute;
       display: flex;
       justify-content: center;
@@ -51,19 +62,35 @@
       border-radius: 4px;
       border: 1px solid gray;
       align-content: center;
-      /* align-items: center; */
       color: gray;
-      
       .cpl-frndly{
+        height: 20px;
+        width: 102px;
         font-weight: lighter;
-        font-size: 14px;
+        font-size: 13px;
         position: initial;
+        top: 0px;
+        margin-top: 2px;
       }
     }
     .rating-star {
       position: relative;
       top: 23px;
       left: 2%;
+    }
+    .hotel_reviews{
+      height: 55px;
+      width: 94%;
+      position: absolute;
+      top: 106px;
+      
+      .hotel-reviews-line{
+        top: 12px;
+        font-weight: lighter;
+        font-size: 13px;
+        color: #8b572a;
+        width: 235px;
+      }
     }
   }
   .hotel__rating {
@@ -72,5 +99,38 @@
     left: 4em;
     width: 21%;
     height: 100%;
+    .rating_remark{
+      width: 100px;
+      position: relative;
+      top: 7%;
+      left: 21%;
+      display: flex;
+      justify-content: right;
+      .remark{
+        color: #0d4dc3;;
+    font-weight: bolder;
+    font-size: 21px;
+      }
+    }
+    .rating-div{
+      background-color: #1d5d90;
+      width: 34px;
+      height: 21px;
+      border-radius: 4px;
+      color: white;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      left: 76%;
+      bottom: 3%;
+
+      .rating__color{
+        font-size: 15px;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 2px;
+      }
+    }
+
   }
 }

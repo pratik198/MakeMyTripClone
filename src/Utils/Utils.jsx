@@ -12,3 +12,5 @@ export default function ratingRemark(rating){
                 return "";
         }
 }
+
+
