@@ -8,10 +8,14 @@ function Hotelpage(props) {
   const location = useLocation();
   const hotelData1 = location.state?.hotelData11 || [];
   const [hotelId, setHotelId] = useState(null);
-  const [hotelDetails, setHotelDetails] = useState(null);
-  const getHotelDetails = async () => {
+  const [hotelDetail, setHotelDetails] = useState(null);
+ 
+
+
+  const getHotelDetails = async (item) => {
+    setHotelId(item._id);
     console.log("getting hotel data");
-    const ApisUrl = `https://academics.newtonschool.co/api/v1/bookingportals/hotel/6527dc50de44dd75f5271d99`;
+    const ApisUrl = `https://academics.newtonschool.co/api/v1/bookingportals/hotel/${item._id}`;
     console.log(ApisUrl);
     try {
       const response = await fetch(ApisUrl, {
@@ -20,11 +24,14 @@ function Hotelpage(props) {
         },
       });
       console.log(response);
-      const data = await response.json();
-      console.log(data);
-
-      navigate("/hoteldetails", { state: { details: data?.data } });
       if (response.ok) {
+
+        const data = await response.json();
+        console.log(data.data)
+        setHotelDetails(data?.data);
+        navigate("/hoteldetails", { state: { hotelDetail: data?.data } });
+        // navigate("/hotelpage", { state: { hotelData11: data?.data?.hotels } });
+        // navigate("/hoteldetails", { state: { details: data?.data } });
       } else {
         console.error("Error while data fetching");
       }
@@ -37,9 +44,7 @@ function Hotelpage(props) {
     console.log("Pratik");
 
     console.log(hotelData1);
-    // getHotelDetails();
 
-    // Apicall();
   }, []);
 
   return (
@@ -57,7 +62,7 @@ function Hotelpage(props) {
         </div>
       </div>
       {hotelData1.map((item) => (
-        <div>
+        <div key={item._id} onClick={() => getHotelDetails(item)}>
           <Hotelcard
             image={item.images}
             name={item.name}

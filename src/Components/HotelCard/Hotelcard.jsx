@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 import "./Hotelcard.scss";
 import Header2 from "../Header2/Header2";
 import Rating from "./Rating";
@@ -10,23 +10,24 @@ import { Link } from "react-router-dom";
 function getRandomDiscount() {
   return Math.floor(Math.random() * 900) + 100; // Generates a random 3-digit number
 }
-
 function Hotelcard(props) {
   const randomDiscount = getRandomDiscount();
-
   const [hoveredImage, setHoveredImage] = useState(props.image[0]);
+
+
+
   useEffect(() => {
-    console.log(props.image[0]);
-    console.log(props.image[1]);
-    console.log(props.image[2]);
-    console.log(props.name);
-    console.log(props.rating);
-    console.log(props.cost);
-    console.log(props.unmarriedCouplesAllowed);
-    console.log(props.tax);
-    console.log(props.discount);
-    console.log(props.price);
-    console.log(props.cancelationPolicy);
+    // console.log(props.image[0]);
+    // console.log(props.image[1]);
+    // console.log(props.image[2]);
+    // console.log(props.name);
+    // console.log(props.rating);
+    // console.log(props.cost);
+    // console.log(props.unmarriedCouplesAllowed);
+    // console.log(props.tax);
+    // console.log(props.discount);
+    // console.log(props.price);
+    // console.log(props.cancelationPolicy);
   }, []);
   return (
     <div>
