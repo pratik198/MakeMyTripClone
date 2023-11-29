@@ -1,15 +1,5 @@
 .hotel__cards {
-  // display: flex;
-  // // height: 15em;
-  // height: 18em;
-  // width: 69%;
-  // position: relative;
-  // bottom: 26em;
-  // left: 24%;
-  // border: 1px solid #c9c2c2;
-  // border-radius: 5px;
-  // transition: border-color 0.1s;
-  // margin-bottom: 1em;
+   cursor: pointer;
   display: flex;
     height: 279px;
     width: 69%;
@@ -35,6 +25,7 @@
       border-radius: 6px;
       width: 98%;
       height: 100%;
+      transition: opacity 0.3s ease;
     }
     .small-pic{
 

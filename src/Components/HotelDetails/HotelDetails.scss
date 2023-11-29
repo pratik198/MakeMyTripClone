@@ -1,0 +1,63 @@
+.hotel-details-main {
+  position: absolute;
+  top: 6em;
+  height: 100vh;
+  width: 98vw;
+  .hotel-initial-part {
+    // background-color: red;
+    height: 30em;
+    display: flex;
+    justify-content: center;
+    .first-section {
+    //   background-color: green;
+      width: 35em;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .hotel-image-font-pic {
+        width: 100%;
+        // background-color: black;
+        height: 74%;
+        img {
+            height: 100%;
+            width: 100%;
+            border-radius: 14px;
+        }
+      }
+    }
+    .second-section {
+        // background-color: brown;
+        width: 21em;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        // align-items: center;
+        padding-left: 2em;
+      .hotel-images-small{
+        // background-color: black;
+        width: 18em;
+        height: 355px;
+        position: relative;
+        right: 20px;
+        position: relative;
+        top: 63px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        gap: 12px;
+        margin-right: 14px;
+        img{
+            height: 51%;
+            border-radius: 10px;
+        }
+     
+      }
+    }
+    .third-section {
+        background-color: blue;
+        width: 19em;
+        height: 100%;
+    }
+  }
+}

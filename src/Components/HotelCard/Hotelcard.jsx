@@ -1,12 +1,20 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 import "./Hotelcard.scss";
 import Header2 from "../Header2/Header2";
 import Rating from "./Rating";
 import ratingRemark from "../../Utils/Utils";
-import VacLog from "../../Assets/img/vaccsin.jpg";
 import reviews from "../../Utils/Reviews";
+import { Link } from "react-router-dom";
+
+function getRandomDiscount() {
+  return Math.floor(Math.random() * 900) + 100; // Generates a random 3-digit number
+}
+
 function Hotelcard(props) {
+  const randomDiscount = getRandomDiscount();
+
+  const [hoveredImage, setHoveredImage] = useState(props.image[0]);
   useEffect(() => {
     console.log(props.image[0]);
     console.log(props.image[1]);
@@ -24,15 +32,20 @@ function Hotelcard(props) {
     <div>
       <Header2 />
       <div className="hotel__cards">
-        <div className="hotel__img">
-          <img className="imgs-hotels" src={props.image[0]} alt=".." />
+        <Link to="/hoteldetails" className="hotel__img">
+          <img className="imgs-hotels" src={hoveredImage} alt=".." />
           <div className="small-pic">
-            <img className="small-img-hotels" src={props.image[1]} alt="..." />
-            <img className="small-img-hotels" src={VacLog} alt=".." />
-            <img className="small-img-hotels" src={props.image[2]} alt="..." />
-            <img className="small-img-hotels" src={props.image[3]} alt="..." />
+            {props.image.slice(0, 4).map((image, index) => (
+              <img
+                key={index}
+                className="small-img-hotels"
+                src={image}
+                alt="..."
+                onMouseOver={() => setHoveredImage(image)}
+              />
+            ))}
           </div>
-        </div>
+        </Link>
         <div className="hotel__name">
           <p>{props.name}</p>
           {props.unmarriedCouplesAllowed && (
@@ -72,7 +85,7 @@ function Hotelcard(props) {
         </div>
         <div className="footer_offer">
           <p className="lines-discount">
-            Exclusive Offer on instant book.Get INR {props.tax} Off{" "}
+            Exclusive Offer on instant book.Get INR {randomDiscount} Off{" "}
           </p>
         </div>
       </div>
