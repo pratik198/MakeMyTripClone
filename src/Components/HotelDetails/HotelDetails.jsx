@@ -5,11 +5,22 @@ import Header2 from "../Header2/Header2";
 import { useLocation } from "react-router";
 import Next from "../../Assets/img/next.png";
 import Previous from "../../Assets/img/previous.png";
+import Rating from "../HotelCard/Rating";
 
 function HotelDetails(props) {
   const location = useLocation();
   const hotelDetail = location.state?.hotelDetail || "";
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const starRating = location.state.starRating1 || undefined;
+console.log(starRating)
+ 
+var randomStarRating = getRandomNum();
+console.log(randomStarRating)
+  function getRandomNum(){
+
+    const a = Math.floor(Math.random() * (5 - 3 + 1)) + 3;
+    return a;
+  }
 
   useEffect(() => {
     console.log(location.state?.hotelDetail);
@@ -42,9 +53,6 @@ function HotelDetails(props) {
               <button onClick={handleNextClick}>
                 <img src={Next} alt="Next" />
               </button>
-
-              {/* <button onClick={handlePrevClick}>Prev</button>
-              <button onClick={handleNextClick}>Next</button> */}
             </div>
           </div>
           <div className="second-section">
@@ -54,6 +62,11 @@ function HotelDetails(props) {
             </div>
           </div>
           <div className="third-section">3rd section-images</div>
+        </div>
+        <div className="hotel-star-rating">
+          <h1>{hotelDetail.name}</h1>
+          <p>{starRating !== undefined?starRating:randomStarRating}star hotel</p>
+          <Rating star={hotelDetail.rating} />
         </div>
       </div>
     </div>

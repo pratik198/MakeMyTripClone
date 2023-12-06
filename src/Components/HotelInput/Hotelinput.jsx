@@ -5,36 +5,34 @@ import "./Hotelinput.scss";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import Main from "../Main/Main";
 
-
 const HotelInputBox = () => {
   const navigate = useNavigate();
   const [place, setPlace] = useState(null);
   // const [day,setDay ] = useState(null);
-const [hotelData,setHotelData] =useState(null);
- function handelplace(e){
-  console.log(e.target.value);
-  setPlace(e.target.value);
- }
+  const [hotelData, setHotelData] = useState(null);
+  function handelplace(e) {
+    console.log(e.target.value);
+    setPlace(e.target.value);
+  }
   const getData = async () => {
     console.log("get data called");
     // const ApisUrl =
     //   `https://academics.newtonschool.co/api/v1/bookingportals/hotel?search={"location":"mumbai"}&day="Fri"`;
     const ApisUrl = `https://academics.newtonschool.co/api/v1/bookingportals/hotel?search={"location":"${place}","check_in":"${state.check_in}","check_out":"${state.check_out}"}&day="${day}"`;
-      console.log(ApisUrl);
+    console.log(ApisUrl);
     try {
       const response = await fetch(ApisUrl, {
         headers: {
           projectID: "f104bi07c490",
         },
       });
-      console.log(response)
+      console.log(response);
       const data = await response.json();
-        console.log(data);
-        console.log(data?.data?.hotels)
-        setHotelData(data?.data?.hotels)
-        navigate("/hotelpage", { state: { hotelData11: data?.data?.hotels } });
+      console.log(data);
+      console.log(data?.data?.hotels);
+      setHotelData(data?.data?.hotels);
+      navigate("/hotelpage", { state: { hotelData11: data?.data?.hotels } });
       if (response.ok) {
-   
       } else {
         console.error("Error while data fetching");
       }
@@ -74,164 +72,171 @@ const [hotelData,setHotelData] =useState(null);
 
   return (
     <div>
-    <Main/>
-    <section className="input-box-wrapper">
-      <div className="input-box">
-        <div className="input-wrapper">
-          <div className="input">
-            <div className="top-sec">
-              <div className={type === "single" ? "checked" : ""}>
-                <input
-                  type="radio"
-                  name="type"
-                  id="single"
-                  checked={type === "single"}
-                  onChange={() => setType("single")}
-                />
-                <label htmlFor="single">Single</label>
-              </div>
-              <div className={type === "double" ? "checked" : ""}>
-                <input
-                  type="radio"
-                  name="type"
-                  id="double"
-                  checked={type === "double"}
-                  onChange={() => setType("double")}
-                />
-                <label htmlFor="double">Double</label>
-              </div>
-              <div className={type === "king" ? "checked" : ""}>
-                <input
-                  type="radio"
-                  name="type"
-                  id="king"
-                  checked={type === "king"}
-                  onChange={() => setType("king")}
-                />
-                <label htmlFor="king">King</label>
-              </div>
-            </div>
-            <div className="bottom-sec">
-              <div className="city">
-                <label htmlFor="city">City</label>
-                <input
-                  type="text"
-                  id="city"
-                  placeholder="city"
-                  autoComplete="off"
-                  name="city"
-                  value={place}
-                  onChange={handelplace}
-                />
-                <span>{place}, India</span>
-              </div>
-
-              <div>
-                <label htmlFor="check_in">
-                  <span>Check In</span> <BiChevronDown className="icon" />{" "}
-                </label>
-                <div className="date">
-                  <div>
-                    <span>{date.format(new Date(state.check_in), `D `)}</span>
-                    <p>{date.format(new Date(state.check_in), `MMM'YY`)}</p>
-                  </div>
-                  <div>{date.format(new Date(state.check_in), `dddd`)}</div>
+      <Main />
+      <section className="input-box-wrapper">
+        <div className="input-box">
+          <div className="input-wrapper">
+            <div className="input">
+              <div className="top-sec">
+                <div className={type === "single" ? "checked" : ""}>
+                  <input
+                    type="radio"
+                    name="type"
+                    id="single"
+                    checked={type === "single"}
+                    onChange={() => setType("single")}
+                  />
+                  <label htmlFor="single">Single</label>
                 </div>
-                <input
-                  className={"date-input"}
-                  type="date"
-                  id="check_in"
-                  autoComplete="off"
-                  name="check_in"
-                  value={state.check_in}
-                  onChange={changeHandler}
-                />
+                <div className={type === "double" ? "checked" : ""}>
+                  <input
+                    type="radio"
+                    name="type"
+                    id="double"
+                    checked={type === "double"}
+                    onChange={() => setType("double")}
+                  />
+                  <label htmlFor="double">Double</label>
+                </div>
+                <div className={type === "king" ? "checked" : ""}>
+                  <input
+                    type="radio"
+                    name="type"
+                    id="king"
+                    checked={type === "king"}
+                    onChange={() => setType("king")}
+                  />
+                  <label htmlFor="king">King</label>
+                </div>
               </div>
-              <div>
-                <label htmlFor="check_out">
-                  <span>Check Out</span> <BiChevronDown className="icon" />
-                </label>
-                <div className="date">
-                  <div>
-                    <span>{date.format(new Date(state.check_out), `D `)}</span>
-                    <p>{date.format(new Date(state.check_out), `MMM'YY`)}</p>
-                  </div>
-                  <div>{date.format(new Date(state.check_out), `dddd`)}</div>
+              <div className="bottom-sec">
+                <div className="city">
+                  <label htmlFor="city">City</label>
+                  <input
+                    type="text"
+                    id="city"
+                    placeholder="city"
+                    autoComplete="off"
+                    name="city"
+                    value={place}
+                    onChange={handelplace}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        getData();
+                      }
+                    }}
+                  />
+                  <span>{place}, India</span>
                 </div>
 
-                <input
-                  className="date-input"
-                  type="datetime-local"
-                  id="check_out"
-                  autoComplete="off"
-                  name="check_out"
-                  value={state.check_out}
-                  onChange={changeHandler}
-                  disabled={type === "oneway"}
-                />
+                <div>
+                  <label htmlFor="check_in">
+                    <span>Check In</span> <BiChevronDown className="icon" />{" "}
+                  </label>
+                  <div className="date">
+                    <div>
+                      <span>{date.format(new Date(state.check_in), `D `)}</span>
+                      <p>{date.format(new Date(state.check_in), `MMM'YY`)}</p>
+                    </div>
+                    <div>{date.format(new Date(state.check_in), `dddd`)}</div>
+                  </div>
+                  <input
+                    className={"date-input"}
+                    type="date"
+                    id="check_in"
+                    autoComplete="off"
+                    name="check_in"
+                    value={state.check_in}
+                    onChange={changeHandler}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="check_out">
+                    <span>Check Out</span> <BiChevronDown className="icon" />
+                  </label>
+                  <div className="date">
+                    <div>
+                      <span>
+                        {date.format(new Date(state.check_out), `D `)}
+                      </span>
+                      <p>{date.format(new Date(state.check_out), `MMM'YY`)}</p>
+                    </div>
+                    <div>{date.format(new Date(state.check_out), `dddd`)}</div>
+                  </div>
+
+                  <input
+                    className="date-input"
+                    type="datetime-local"
+                    id="check_out"
+                    autoComplete="off"
+                    name="check_out"
+                    value={state.check_out}
+                    onChange={changeHandler}
+                    disabled={type === "oneway"}
+                  />
+                </div>
+                <div className="guests">
+                  <label htmlFor="guests">Guests</label>
+                  <input
+                    type="text"
+                    id="guests"
+                    placeholder="guests"
+                    autoComplete="off"
+                    name="guests"
+                    value={state.guests}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      const pattern = /^\d{0,10}(\.\d{0,2})?$/;
+                      if (value.match(pattern)) {
+                        changeHandler(e);
+                      }
+                    }}
+                  />
+                  <span>{state.guests} Guests</span>
+                </div>
               </div>
-              <div className="guests">
-                <label htmlFor="guests">Guests</label>
-                <input
-                  type="text"
-                  id="guests"
-                  placeholder="guests"
-                  autoComplete="off"
-                  name="guests"
-                  value={state.guests}
-                  onChange={(e) => {
-                    const value = e.target.value;
-                    const pattern = /^\d{0,10}(\.\d{0,2})?$/;
-                    if (value.match(pattern)) {
-                      changeHandler(e);
-                    }
-                  }}
-                />
-                <span>{state.guests} Guests</span>
+              <div className="btm-hotel">
+                <div className="sec">
+                  <span>Recent Searches:</span>
+                  <div>
+                    <span>Goa</span>
+                    <span>14 Feb'23</span>
+                  </div>
+                  <div>
+                    <span>Delhi</span>
+                    <span>24 Feb'23</span>
+                  </div>
+                </div>
+                <div className="tranding">
+                  <span>Trending Searches:</span>
+                  <div>
+                    <span>Banglore</span>
+                  </div>
+                  <div>
+                    <span>Delhi</span>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="btm-hotel">
-              <div className="sec">
-                <span>Recent Searches:</span>
-                <div>
-                  <span>Goa</span>
-                  <span>14 Feb'23</span>
-                </div>
-                <div>
-                  <span>Delhi</span>
-                  <span>24 Feb'23</span>
-                </div>
-              </div>
-              <div className="tranding">
-                <span>Trending Searches:</span>
-                <div>
-                  <span>Banglore</span>
-                </div>
-                <div>
-                  <span>Delhi</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-            <button onClick={() =>getData()} className="submit-btn">
+
+            <button onClick={() => getData()} className="submit-btn">
               Search
             </button>
-         
-          <div className="explore">
-            <img
-              src="https://promos.makemytrip.com/Growth/Images/B2C/2x/dt_tert_downArrow.png"
-              alt="arrow"
-            />
-            <span>Explore More</span>
-            <img
-              src="https://promos.makemytrip.com/Growth/Images/B2C/2x/dt_tert_downArrow.png"
-              alt="arrow"
-            />
+
+            <div className="explore">
+              <img
+                src="https://promos.makemytrip.com/Growth/Images/B2C/2x/dt_tert_downArrow.png"
+                alt="arrow"
+              />
+              <span>Explore More</span>
+              <img
+                src="https://promos.makemytrip.com/Growth/Images/B2C/2x/dt_tert_downArrow.png"
+                alt="arrow"
+              />
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
     </div>
   );
 };

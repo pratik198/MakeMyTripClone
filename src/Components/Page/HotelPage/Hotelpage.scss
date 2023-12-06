@@ -1,22 +1,50 @@
-.hotelpage{
-    position: relative;
-    top: 61px;
-    height: 100vh;
+.hotelpage {
+  position: relative;
+  top: 61px;
+  height: 100vh;
+  width: 100%;
+
+  .page_header-section {
+    background-color: #cfe9fc;
     width: 100%;
-    .page_header-section{
-        height: 8em;
-        width: 100%;
-        box-shadow: 0 2px 5px #2525254b;
-        background: linear-gradient(180deg,#051320,#0c2540)!important;
+    height: 50px;
+    border-bottom: 1px solid #c7baba;
+    
+    .sub-header-hotel {
+      display: flex;
+      justify-content: space-around;
+      position: relative;
+      top: 17px;
+      p {
+        font-weight: 400;
+        color: #7b7070;
+      }
     }
-    .hotel-cards-details{
-        background-color: white;
-        width: 47%;
-        height: 15em;
-        position: relative;
-        left: 29%;
-        top: 7px;
-        border-radius: 19px;
-        box-shadow: 0 2px 5px #2525254b;
-    }
+  }
+  .hotel-cards-details {
+    background-color: white;
+    width: 47%;
+    height: 15em;
+    position: relative;
+    left: 29%;
+    top: 7px;
+    border-radius: 19px;
+    box-shadow: 0 2px 5px #2525254b;
+  }
+  .filter-section {
+    height: 100%;
+    width: 22%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 98px;
+    padding-left: 22px;
+  }
+}
+
+h2{
+    width: 231px;
+    /* background-color: aqua; */
+    position: absolute;
+    bottom: 16em;
+    left: 14em;
 }
