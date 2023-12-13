@@ -5,7 +5,10 @@ import { useNavigate, useLocation } from "react-router";
 import Hotelcard from "../../HotelCard/Hotelcard";
 import SearchHeader from "../../SearchHeader/SearchHeader";
 import HeaderOnSecondaryPage from "../../Page/HotelPage/HeaderOnSecondaryPage";
+import searchPng from "../../../Assets/img/search-icon-hotel.png";
+
 function Hotelpage(props) {
+
   const navigate = useNavigate();
   const location = useLocation();
   const [hotelData1, setHotelData1] = useState(location.state?.hotelData11);
@@ -14,8 +17,54 @@ function Hotelpage(props) {
   const [searchString, setSearchString] = useState(null);
   const [originalHotelData, setOriginalHotelData] = useState(null);
   const [starRating, setStarRating] = useState(null);
+
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  
   let star = null;
-//xyz
+  function getFreeCancelation(){
+    const data = [];
+   
+    hotelData1.forEach((element)=>{
+      const rooms = element.rooms;
+      rooms.forEach((room)=>{
+        if(room.cancellationPolicy!== null && room.cancellationPolicy!== undefined && data.includes(element)=== false){
+
+                data.push(element);
+                
+        }
+      })
+    })
+    setHotelData1(data);
+  }
+  function handelHotelFreeCancelation(e){
+    const isChecked = e.target.checked;
+    if (isChecked) {
+     getFreeCancelation();
+    } else {
+      setHotelData1(originalHotelData);
+    }
+  }
+  function getHotelWithUnmarriedCouples (){
+    const data=[];
+    hotelData1.forEach((element) => {
+      if(element?.houseRules?.guestProfile?.unmarriedCouplesAllowed=== true){
+        data.push(element)
+      }
+    });
+    setHotelData1(data);
+  }
+
+ 
+
+  function handleUnmarriedCouplesChange(e) {
+    const isChecked = e.target.checked;
+    if (isChecked) {
+      getHotelWithUnmarriedCouples();
+    } else {
+      setHotelData1(originalHotelData);
+    }
+  }
+
   function getMultipleRandom(arr, num) {
     const shuffled = [...arr].sort(() => 0.5 - Math.random());
 
@@ -23,34 +72,32 @@ function Hotelpage(props) {
   }
 
   function handleFiveStarRating() {
-    console.log("five star rating called ")
+    console.log("five star rating called ");
     setStarRating("5");
-    star="5";
+    star = "5";
     const res = getMultipleRandom(hotelData1, 6);
-    const res1 = [...new Set(res)]
-    
+    const res1 = [...new Set(res)];
+
     setHotelData1(res1);
     console.log(starRating);
     console.log(star);
   }
 
   function handleFourStarRating() {
-   
-      console.log("four star rating called ")
+    console.log("four star rating called ");
     setStarRating("4");
     const res = getMultipleRandom(hotelData1, 8);
-    const res1 = [...new Set(res)]
-    
+    const res1 = [...new Set(res)];
+
     setHotelData1(res1);
   }
 
   function handleThreeStarRating() {
-   
-      console.log("three star rating called ")
+    console.log("three star rating called ");
     setStarRating("3");
     const res = getMultipleRandom(hotelData1, 6);
-    const res1 = [...new Set(res)]
-    
+    const res1 = [...new Set(res)];
+
     setHotelData1(res1);
   }
 
@@ -111,7 +158,7 @@ function Hotelpage(props) {
           console.log(data.data);
           setHotelDetails(data?.data);
           navigate("/hoteldetails", {
-            state: { hotelDetail: data?.data, starRating1: star},
+            state: { hotelDetail: data?.data, starRating1: star },
           });
         } else {
           console.error("Error while data fetching");
@@ -164,32 +211,126 @@ function Hotelpage(props) {
 
   return (
     <div>
-      {/* <Header2 /> */}
       <HeaderOnSecondaryPage />
       <SearchHeader />
       <div className="hotelpage">
         <div className="page_header-section">
           <div className="sub-header-hotel">
-            <p>SORT BY:</p>
-            <p>Popular</p>
-            <p onClick={sortBasedOnUserRating}>User rating(Highest first)</p>
-            <p onClick={sortBasedOnHighestPrice}>Price(Highest first)</p>
-            <p onClick={sortBasedOnLowestPrice}>Price(Lowest first)</p>
 
-            <div>
-              <label for="search__hotel_single">search hotel:</label>
+            <div className="header-section">
+              <p>SORT BY:</p>
+              <p>Popular</p>
+              <p onClick={sortBasedOnUserRating}>User rating(Highest first)</p>
+              <p onClick={sortBasedOnHighestPrice}>Price(Highest first)</p>
+              <p onClick={sortBasedOnLowestPrice}>Price(Lowest first)</p>
+            </div>
+              <div className="search-hotel-field" onClick={searchByName}>
+                <img id="img-search" src={searchPng} alt="..." />
+              </div>
               <input
                 type="text"
                 id="search__hotel_single"
                 name="search__bar"
+                placeholder="Search for Hotel name"
                 onChange={handleSearch}
                 onKeyDown={handleKeyDown}
               />
-              <button onClick={searchByName}>search</button>
-            </div>
           </div>
         </div>
         <form className="filter-section">
+       <div className="iframe">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14973.476958478403!2d85.735887!3d20.24351575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1702394250279!5m2!1sen!2sin" style={{width:"600" ,height:"450", styles:"border:0;" ,allowfullscreen:"" ,loading:"lazy" ,referrerpolicy:"no-referrer-when-downgrade",opacity:"0.8"}}></iframe>
+       </div>
+        <p className="map-entry_">EXPLORE ON MAP</p>
+        <br />
+        <br/>
+        <br/>
+        <p>Select Filters</p>
+        <br/>
+        <h3>Suggested For You</h3>
+        <br/>
+        <label>
+            <input
+              type="checkbox"
+              id="priceCheckbox1"
+              onChange={handleCheckboxChange}
+            />{" "}
+            Last Minute Deals
+          </label>
+          <br />
+          <label>
+            <input
+              type="checkbox"
+              id="priceCheckbox1"
+              onChange={handleFiveStarRating}
+            />{" "}
+            5 Star
+          </label>
+          <br />
+          <label>
+            <input
+              type="checkbox"
+              id="priceCheckbox1"
+              onChange={handleUnmarriedCouplesChange}
+            />{" "}
+            Unmarried Couples Allowed
+          </label>
+          <br />
+          <label>
+            <input
+              type="checkbox"
+              id="priceCheckbox1"
+              onChange={handelHotelFreeCancelation}
+            />{" "}
+            Free cancellation
+          </label>
+          <br />
+          <label>
+            <input
+              type="checkbox"
+              id="priceCheckbox1"
+              onChange={handleCheckboxChange}
+            />{" "}
+            Calangute
+          </label>
+          <br />
+          <label>
+            <input
+              type="checkbox"
+              id="priceCheckbox1"
+              onChange={handleCheckboxChange}
+            />{" "}
+            Candolim
+          </label>
+          <br />
+          <label>
+            <input
+              type="checkbox"
+              id="priceCheckbox1"
+              onChange={handleCheckboxChange}
+            />{" "}
+            Baga
+          </label>
+          <br />
+          <label>
+            <input
+              type="checkbox"
+              id="priceCheckbox1"
+              onChange={handleCheckboxChange}
+            />{" "}
+            Anjuna
+          </label>
+          <br />
+          <label>
+            <input
+              type="checkbox"
+              id="priceCheckbox1"
+              onChange={handleCheckboxChange}
+            />{" "}
+            Panjim
+          </label>
+          <br />
+          <br/>
           <h3>Price per night</h3>
           <br />
           <label>
@@ -219,6 +360,7 @@ function Hotelpage(props) {
             ₹ 5001 - ₹ 10000
           </label>
           <br />
+         
           <label>
             <input
               type="checkbox"
@@ -237,15 +379,17 @@ function Hotelpage(props) {
             ₹ 15001 - ₹ 20000
           </label>
           <br />
+          <h4 style={{color:"grey"}}>Your budget</h4>
+          
           <h3>Star Category</h3>
-          <br/>
+          <br />
           <label>
             <input
               type="checkbox"
               id="priceCheckbox6"
               onChange={handleThreeStarRating}
             />{" "}
-           3 Star
+            3 Star
           </label>
           <br />
           <label>
@@ -254,7 +398,7 @@ function Hotelpage(props) {
               id="priceCheckbox6"
               onChange={handleFourStarRating}
             />{" "}
-           4 Star
+            4 Star
           </label>
           <br />
           <label>
@@ -263,7 +407,7 @@ function Hotelpage(props) {
               id="priceCheckbox6"
               onChange={handleFiveStarRating}
             />{" "}
-           5 Star
+            5 Star
           </label>
           <br />
         </form>

@@ -14,8 +14,6 @@ function Hotelcard(props) {
   const randomDiscount = getRandomDiscount();
   const [hoveredImage, setHoveredImage] = useState(props.image[0]);
 
-
-
   useEffect(() => {
     // console.log(props.image[0]);
     // console.log(props.image[1]);

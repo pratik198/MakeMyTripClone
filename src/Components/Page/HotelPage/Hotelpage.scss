@@ -9,15 +9,46 @@
     width: 100%;
     height: 50px;
     border-bottom: 1px solid #c7baba;
-    
+
     .sub-header-hotel {
       display: flex;
       justify-content: space-around;
       position: relative;
       top: 17px;
-      p {
-        font-weight: 400;
-        color: #7b7070;
+      .header-section {
+        height: 30px;
+        width: 69%;
+        display: flex;
+        justify-content: center;
+        justify-content: space-between;
+        position: relative;
+        bottom: 4px;
+        p {
+          font-weight: 400;
+          color: #7b7070;
+        }
+      }
+      .search-hotel-field {
+        background-color: white;
+        height: 29px;
+        width: 29px;
+        position: relative;
+        left: 66px;
+        bottom: 6px;
+        img {
+          height: 21px;
+          position: relative;
+          top: 5px;
+          left: 6px;
+        }
+      }
+      #search__hotel_single {
+        position: relative;
+        bottom: 6px;
+        border: none;
+        outline: none;
+        width: 192px;
+        height: 29px;
       }
     }
   }
@@ -33,18 +64,65 @@
   }
   .filter-section {
     height: 100%;
-    width: 22%;
+    width: 19%;
     display: flex;
     flex-direction: column;
-    padding-top: 98px;
-    padding-left: 22px;
+    /* padding-top: 98px; */
+    padding-left: 61px;
+    position: relative;
+    top: 35px;
+    img{
+      position: unset;
+      bottom: 134px;
+      height: 111px;
+      width: 234px;
+      border-radius: 10px;
+      box-shadow: 0 1px 4px 0 #0003;
+    }
+    iframe {
+      width: 236px;
+      border-radius: 10px;
+      height: 135px;
+    }
+    .map-entry_{
+      align-items: center;
+      background-color: #fff;
+      border: 1px solid #008cff;
+      border-radius: 8px;
+      bottom: 10px;
+      color: #008cff;
+      cursor: pointer;
+      display: flex;
+      font-family: Lato, sans-serif;
+      font-size: 12px;
+      font-weight: 900;
+      height: 32px;
+      justify-content: center;
+      left: 10px;
+      line-height: 14px;
+      outline: 0;
+      position: absolute;
+      text-transform: uppercase;
+      width: calc(80% - 20px);
+      z-index: 1;
+      top: 10%;
+      left: 85px;
+    }
+    p{
+      font-size: 27px;
+      font-weight: 600;
+      position: relative;
+      bottom: 33px;
+    }
   }
 }
 
-h2{
-    width: 231px;
-    /* background-color: aqua; */
-    position: absolute;
-    bottom: 16em;
-    left: 14em;
+h2 {
+  width: 231px;
+  /* background-color: aqua; */
+  position: absolute;
+  bottom: 16em;
+  left: 14em;
 }
+
+
