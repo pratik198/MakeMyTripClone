@@ -14,7 +14,6 @@ const Rating = (props) => {
       </span>
     ))}
   </div>
-
   );
 };
 

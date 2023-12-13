@@ -145,6 +145,15 @@
         font-weight: bold;
         text-align: center;
         margin-top: 2px;
+        position: relative;
+        left: 36px;
+      }
+      .reviews-rating{
+        position: relative;
+        top: 22px;
+        right: 40px;
+        font-size: 14px;
+        color: #555151;
       }
     }
     .price_hotel{

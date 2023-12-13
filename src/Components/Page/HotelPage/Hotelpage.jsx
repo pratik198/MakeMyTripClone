@@ -8,7 +8,6 @@ import HeaderOnSecondaryPage from "../../Page/HotelPage/HeaderOnSecondaryPage";
 import searchPng from "../../../Assets/img/search-icon-hotel.png";
 
 function Hotelpage(props) {
-
   const navigate = useNavigate();
   const location = useLocation();
   const [hotelData1, setHotelData1] = useState(location.state?.hotelData11);
@@ -19,42 +18,42 @@ function Hotelpage(props) {
   const [starRating, setStarRating] = useState(null);
 
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
-  
-  let star = null;
-  function getFreeCancelation(){
-    const data = [];
-   
-    hotelData1.forEach((element)=>{
-      const rooms = element.rooms;
-      rooms.forEach((room)=>{
-        if(room.cancellationPolicy!== null && room.cancellationPolicy!== undefined && data.includes(element)=== false){
 
-                data.push(element);
-                
+  let star = null;
+  function getFreeCancelation() {
+    const data = [];
+
+    hotelData1.forEach((element) => {
+      const rooms = element.rooms;
+      rooms.forEach((room) => {
+        if (
+          room.cancellationPolicy !== null &&
+          room.cancellationPolicy !== undefined &&
+          data.includes(element) === false
+        ) {
+          data.push(element);
         }
-      })
-    })
+      });
+    });
     setHotelData1(data);
   }
-  function handelHotelFreeCancelation(e){
+  function handelHotelFreeCancelation(e) {
     const isChecked = e.target.checked;
     if (isChecked) {
-     getFreeCancelation();
+      getFreeCancelation();
     } else {
       setHotelData1(originalHotelData);
     }
   }
-  function getHotelWithUnmarriedCouples (){
-    const data=[];
+  function getHotelWithUnmarriedCouples() {
+    const data = [];
     hotelData1.forEach((element) => {
-      if(element?.houseRules?.guestProfile?.unmarriedCouplesAllowed=== true){
-        data.push(element)
+      if (element?.houseRules?.guestProfile?.unmarriedCouplesAllowed === true) {
+        data.push(element);
       }
     });
     setHotelData1(data);
   }
-
- 
 
   function handleUnmarriedCouplesChange(e) {
     const isChecked = e.target.checked;
@@ -216,7 +215,6 @@ function Hotelpage(props) {
       <div className="hotelpage">
         <div className="page_header-section">
           <div className="sub-header-hotel">
-
             <div className="header-section">
               <p>SORT BY:</p>
               <p>Popular</p>
@@ -224,32 +222,43 @@ function Hotelpage(props) {
               <p onClick={sortBasedOnHighestPrice}>Price(Highest first)</p>
               <p onClick={sortBasedOnLowestPrice}>Price(Lowest first)</p>
             </div>
-              <div className="search-hotel-field" onClick={searchByName}>
-                <img id="img-search" src={searchPng} alt="..." />
-              </div>
-              <input
-                type="text"
-                id="search__hotel_single"
-                name="search__bar"
-                placeholder="Search for Hotel name"
-                onChange={handleSearch}
-                onKeyDown={handleKeyDown}
-              />
+            <div className="search-hotel-field" onClick={searchByName}>
+              <img id="img-search" src={searchPng} alt="..." />
+            </div>
+            <input
+              type="text"
+              id="search__hotel_single"
+              name="search__bar"
+              placeholder="Search for Hotel name"
+              onChange={handleSearch}
+              onKeyDown={handleKeyDown}
+            />
           </div>
         </div>
         <form className="filter-section">
-       <div className="iframe">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14973.476958478403!2d85.735887!3d20.24351575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1702394250279!5m2!1sen!2sin" style={{width:"600" ,height:"450", styles:"border:0;" ,allowfullscreen:"" ,loading:"lazy" ,referrerpolicy:"no-referrer-when-downgrade",opacity:"0.8"}}></iframe>
-       </div>
-        <p className="map-entry_">EXPLORE ON MAP</p>
-        <br />
-        <br/>
-        <br/>
-        <p>Select Filters</p>
-        <br/>
-        <h3>Suggested For You</h3>
-        <br/>
-        <label>
+          <div className="iframe">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14973.476958478403!2d85.735887!3d20.24351575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1702394250279!5m2!1sen!2sin"
+              style={{
+                width: "600",
+                height: "450",
+                styles: "border:0;",
+                allowfullscreen: "",
+                loading: "lazy",
+                referrerpolicy: "no-referrer-when-downgrade",
+                opacity: "0.8",
+              }}
+            ></iframe>
+          </div>
+          <p className="map-entry_">EXPLORE ON MAP</p>
+          <br />
+          <br />
+          <br />
+          <p>Select Filters</p>
+          <br />
+          <h3>Suggested For You</h3>
+          <br />
+          <label>
             <input
               type="checkbox"
               id="priceCheckbox1"
@@ -273,7 +282,7 @@ function Hotelpage(props) {
               id="priceCheckbox1"
               onChange={handleUnmarriedCouplesChange}
             />{" "}
-            Unmarried Couples Allowed
+            Unmarried Couples &#160;&#160;&#160;&#160;&#160;Allowed
           </label>
           <br />
           <label>
@@ -330,7 +339,7 @@ function Hotelpage(props) {
             Panjim
           </label>
           <br />
-          <br/>
+          <br />
           <h3>Price per night</h3>
           <br />
           <label>
@@ -360,7 +369,7 @@ function Hotelpage(props) {
             ₹ 5001 - ₹ 10000
           </label>
           <br />
-         
+
           <label>
             <input
               type="checkbox"
@@ -379,8 +388,8 @@ function Hotelpage(props) {
             ₹ 15001 - ₹ 20000
           </label>
           <br />
-          <h4 style={{color:"grey"}}>Your budget</h4>
-          
+          <h4 style={{ color: "grey" }}>Your budget</h4>
+
           <h3>Star Category</h3>
           <br />
           <label>
@@ -408,6 +417,64 @@ function Hotelpage(props) {
               onChange={handleFiveStarRating}
             />{" "}
             5 Star
+          </label>
+          <br />
+          <h3>User Rating</h3>
+          <br/>
+          <label>
+            <input
+              type="checkbox"
+              id="priceCheckbox6"
+              onChange={handleFiveStarRating}
+            />{" "}
+            Excellent: 4.2+
+          </label>
+          <br />
+          <label>
+            <input
+              type="checkbox"
+              id="priceCheckbox6"
+              onChange={handleFiveStarRating}
+            />{" "}
+            Very Good: 3.5+
+          </label>
+          <br />
+          <label>
+            <input
+              type="checkbox"
+              id="priceCheckbox6"
+              onChange={handleFiveStarRating}
+            />{" "}
+            Good: 3+
+          </label>
+          <br />
+          <h3>Property Type</h3>
+          <br/>
+          <label>
+            <input
+              type="checkbox"
+              id="priceCheckbox6"
+              onChange={handleFiveStarRating}
+            />{" "}
+            Hotel
+          </label>
+          <br />
+          <label>
+            <input
+              type="checkbox"
+              id="priceCheckbox6"
+              onChange={handleFiveStarRating}
+            />{" "}
+            Apartment
+          </label>
+          <br />
+          <label>
+            <input
+              type="checkbox"
+              id="priceCheckbox6"
+              onChange={handleFiveStarRating}
+            />{" "}
+            Villa
           </label>
           <br />
         </form>

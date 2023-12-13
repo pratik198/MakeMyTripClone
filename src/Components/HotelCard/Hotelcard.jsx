@@ -7,10 +7,15 @@ import ratingRemark from "../../Utils/Utils";
 import reviews from "../../Utils/Reviews";
 import { Link } from "react-router-dom";
 
+function getRandomRating() {
+  return Math.floor(Math.random() * 900) + 100; // Generates a random 4-digit number
+}
+
 function getRandomDiscount() {
   return Math.floor(Math.random() * 900) + 100; // Generates a random 3-digit number
 }
 function Hotelcard(props) {
+  const randomRating = getRandomRating();
   const randomDiscount = getRandomDiscount();
   const [hoveredImage, setHoveredImage] = useState(props.image[0]);
 
@@ -70,6 +75,7 @@ function Hotelcard(props) {
           </div>
           <div className="rating-div">
             <p className="rating__color">{props.rating}</p>
+            <p className="reviews-rating">({randomRating}&#160;Ratings)</p>
           </div>
           <div className="price_hotel">
             <p className="base-price">&#8377; {props.price.toLocaleString()}</p>
