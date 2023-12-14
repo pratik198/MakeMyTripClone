@@ -16,8 +16,39 @@ function Hotelpage(props) {
   const [searchString, setSearchString] = useState(null);
   const [originalHotelData, setOriginalHotelData] = useState(null);
   const [starRating, setStarRating] = useState(null);
+  const [selectedExcellent, setSelectedExcellent] = useState(false);
+  const [selectedVeryGood, setSelectedVeryGood] = useState(false);
+  const [selectedGood, setSelectedGood] = useState(false);
 
-  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  function handleExcellentChange() {
+    setSelectedExcellent((prev) => !prev); 
+  }
+
+  function handleVeryGoodChange() {
+    setSelectedVeryGood((prev) => !prev); 
+  }
+
+  function handleGoodChange() {
+    setSelectedGood((prev) => !prev); 
+  }
+
+  function checkHotelRatings() {
+    let filteredData = originalHotelData.filter((item) => {
+      console.log("check hotel function is clicked")
+      if (selectedExcellent && item.rating >= 4.2) {
+        return true;
+      }
+      if (selectedVeryGood && item.rating >= 3.5 && item.rating < 4.2) {
+        return true;
+      }
+      if (selectedGood && item.rating >= 3 && item.rating < 3.5) {
+        return true;
+      }
+      return false;
+    });
+
+    setHotelData1(filteredData);
+  }
 
   let star = null;
   function getFreeCancelation() {
@@ -420,12 +451,13 @@ function Hotelpage(props) {
           </label>
           <br />
           <h3>User Rating</h3>
-          <br/>
+          <br />
           <label>
             <input
               type="checkbox"
               id="priceCheckbox6"
-              onChange={handleFiveStarRating}
+              onChange={handleExcellentChange}
+              checked={selectedExcellent}
             />{" "}
             Excellent: 4.2+
           </label>
@@ -434,7 +466,8 @@ function Hotelpage(props) {
             <input
               type="checkbox"
               id="priceCheckbox6"
-              onChange={handleFiveStarRating}
+              onChange={handleVeryGoodChange}
+              checked={selectedVeryGood}
             />{" "}
             Very Good: 3.5+
           </label>
@@ -443,13 +476,14 @@ function Hotelpage(props) {
             <input
               type="checkbox"
               id="priceCheckbox6"
-              onChange={handleFiveStarRating}
+              onChange={handleGoodChange}
+              checked={selectedGood}
             />{" "}
             Good: 3+
           </label>
           <br />
           <h3>Property Type</h3>
-          <br/>
+          <br />
           <label>
             <input
               type="checkbox"
@@ -479,7 +513,14 @@ function Hotelpage(props) {
           <br />
         </form>
       </div>
-      <h2>Recently Viewed</h2>
+
+      <h2>
+        Showing Properties in{" "}
+        {hotelData1[0].location.substring(
+          0,
+          hotelData1[0].location.indexOf(",")
+        )}
+      </h2>
       {hotelData1.map((item) => (
         <div key={item._id} onClick={() => getHotelDetails(item)}>
           <Hotelcard
