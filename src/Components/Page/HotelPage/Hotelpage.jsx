@@ -6,11 +6,25 @@ import Hotelcard from "../../HotelCard/Hotelcard";
 import SearchHeader from "../../SearchHeader/SearchHeader";
 import HeaderOnSecondaryPage from "../../Page/HotelPage/HeaderOnSecondaryPage";
 import searchPng from "../../../Assets/img/search-icon-hotel.png";
+import logo from "../../../Assets/img/logo2.png";
+import makemytrip2 from "../../../Assets/img/makemytrip2.svg";
+import { BiChevronDown } from "react-icons/bi";
+import { FaTrain } from "react-icons/fa";
+import {
+  MdOutlineFlight,
+  MdOutlineMapsHomeWork,
+  MdDirectionsBus,
+  MdHiking,
+} from "react-icons/md";
+import { RiHotelLine } from "react-icons/ri";
+import { AiOutlineCar } from "react-icons/ai";
+import { VscGraphLine } from "react-icons/vsc";
+import { Link } from "react-router-dom";
 
 function Hotelpage(props) {
   const navigate = useNavigate();
   const location = useLocation();
-  const [hotelData1, setHotelData1] = useState(location.state?.hotelData11);
+  const [hotelData1, setHotelData1] = useState(location?.state?.hotelData11);
   const [hotelId, setHotelId] = useState(null);
   const [hotelDetail, setHotelDetails] = useState(null);
   const [searchString, setSearchString] = useState(null);
@@ -21,20 +35,20 @@ function Hotelpage(props) {
   const [selectedGood, setSelectedGood] = useState(false);
 
   function handleExcellentChange() {
-    setSelectedExcellent((prev) => !prev); 
+    setSelectedExcellent((prev) => !prev);
   }
 
   function handleVeryGoodChange() {
-    setSelectedVeryGood((prev) => !prev); 
+    setSelectedVeryGood((prev) => !prev);
   }
 
   function handleGoodChange() {
-    setSelectedGood((prev) => !prev); 
+    setSelectedGood((prev) => !prev);
   }
 
   function checkHotelRatings() {
     let filteredData = originalHotelData.filter((item) => {
-      console.log("check hotel function is clicked")
+      console.log("check hotel function is clicked");
       if (selectedExcellent && item.rating >= 4.2) {
         return true;
       }
@@ -241,7 +255,71 @@ function Hotelpage(props) {
 
   return (
     <div>
-      <HeaderOnSecondaryPage />
+      <section className="header2-wrapperr">
+      <div className="header2">
+      <div className="header2">
+        <Link className="logo" to={"/hotels"}>
+          <img src={logo} alt="logo-mmt" />
+        </Link>
+        <section className="navigation-wrapper-2">
+          <div className="navigation">
+            <div className="nav-link active">
+              <MdOutlineFlight className="icon" />
+              <span>Flights</span>
+            </div>
+            <div className="nav-link">
+              <RiHotelLine className="icon" />
+              <span>Hotels</span>
+            </div>
+            <div className="nav-link">
+              <MdOutlineMapsHomeWork className="icon" />
+              <span>Homestays</span>
+            </div>
+            <div className="nav-link">
+              <RiHotelLine className="icon" />
+              <span>Holiday Packages</span>
+            </div>
+            <div className="nav-link">
+              <FaTrain className="icon" />
+              <span>Trains</span>
+            </div>
+            <div className="nav-link">
+              <MdDirectionsBus className="icon" />
+              <span>Buses</span>
+            </div>
+            <div className="nav-link">
+              <AiOutlineCar className="icon" />
+              <span>Cabs</span>
+            </div>
+            <div className="nav-link">
+              <VscGraphLine className="icon" />
+              <span>Forex</span>
+            </div>
+            <div className="nav-link">
+              <MdHiking className="icon" />
+              <span>Activities</span>
+            </div>
+          </div>
+        </section>
+        <div className="right-sec">
+          <div className="login">
+            <div className="user-name">
+              <h1>Manik</h1>
+            </div>
+            <img src={makemytrip2} className="cropped-img" alt="myTrip" />{" "}
+            <span>Login or Create Account</span>
+            <BiChevronDown className="down-arrow" />
+          </div>
+        </div>
+      </div>
+      </div>
+      </section>
+      
+
+
+
+
+       {/* header dor hotel page */}
       <SearchHeader />
       <div className="hotelpage">
         <div className="page_header-section">
@@ -400,7 +478,6 @@ function Hotelpage(props) {
             ₹ 5001 - ₹ 10000
           </label>
           <br />
-
           <label>
             <input
               type="checkbox"
@@ -420,7 +497,6 @@ function Hotelpage(props) {
           </label>
           <br />
           <h4 style={{ color: "grey" }}>Your budget</h4>
-
           <h3>Star Category</h3>
           <br />
           <label>
@@ -511,17 +587,179 @@ function Hotelpage(props) {
             Villa
           </label>
           <br />
+          <h3>Room Views</h3>
+          <br />
+          <label>
+            <input
+              type="checkbox"
+              id="priceCheckbox6"
+              onChange={handleFiveStarRating}
+            />{" "}
+            Garden View
+          </label>
+          <br />
+          <label>
+            <input
+              type="checkbox"
+              id="priceCheckbox6"
+              onChange={handleFiveStarRating}
+            />{" "}
+            Sea View
+          </label>
+          <br />
+          <label>
+            <input
+              type="checkbox"
+              id="priceCheckbox6"
+              onChange={handleFiveStarRating}
+            />{" "}
+            Pool View
+          </label>
+          <br />
+          <h3>Room Amenities</h3>
+          <br />
+          <label>
+            <input
+              type="checkbox"
+              id="priceCheckbox6"
+              onChange={handleFiveStarRating}
+            />{" "}
+            Home Theatre
+          </label>
+          <br />
+          <label>
+            <input
+              type="checkbox"
+              id="priceCheckbox6"
+              onChange={handleFiveStarRating}
+            />{" "}
+            Smoking Room
+          </label>
+          <br />
+          <label>
+            <input
+              type="checkbox"
+              id="priceCheckbox6"
+              onChange={handleFiveStarRating}
+            />{" "}
+            Swimming Pool
+          </label>
+          <br />
+          <label>
+            <input
+              type="checkbox"
+              id="priceCheckbox6"
+              onChange={handleFiveStarRating}
+            />{" "}
+            Bar
+          </label>
+          <br />
+          <label>
+            <input
+              type="checkbox"
+              id="priceCheckbox6"
+              onChange={handleFiveStarRating}
+            />{" "}
+            Restaurant
+          </label>
+          <br />
+          <label>
+            <input
+              type="checkbox"
+              id="priceCheckbox6"
+              onChange={handleFiveStarRating}
+            />{" "}
+            Free WiFi
+          </label>
+          <br />{" "}
+          <label>
+            <input
+              type="checkbox"
+              id="priceCheckbox6"
+              onChange={handleFiveStarRating}
+            />{" "}
+            Spa
+          </label>
+          <br />
+          <label>
+            <input
+              type="checkbox"
+              id="priceCheckbox6"
+              onChange={handleFiveStarRating}
+            />{" "}
+            Gym
+          </label>
+          <br />
+          <h3>Room Amenities</h3>
+          <br/>
+          <label>
+            <input
+              type="checkbox"
+              id="priceCheckbox6"
+              onChange={handleFiveStarRating}
+            />{" "}
+            Gym
+          </label>
+          <br /><label>
+            <input
+              type="checkbox"
+              id="priceCheckbox6"
+              onChange={handleFiveStarRating}
+            />{" "}
+            Gym
+          </label>
+          <br /><label>
+            <input
+              type="checkbox"
+              id="priceCheckbox6"
+              onChange={handleFiveStarRating}
+            />{" "}
+            Gym
+          </label>
+          <br /><label>
+            <input
+              type="checkbox"
+              id="priceCheckbox6"
+              onChange={handleFiveStarRating}
+            />{" "}
+            Gym
+          </label>
+          <br /><label>
+            <input
+              type="checkbox"
+              id="priceCheckbox6"
+              onChange={handleFiveStarRating}
+            />{" "}
+            Gym
+          </label>
+          <br /><label>
+            <input
+              type="checkbox"
+              id="priceCheckbox6"
+              onChange={handleFiveStarRating}
+            />{" "}
+            Gym
+          </label>
+          <br /><label>
+            <input
+              type="checkbox"
+              id="priceCheckbox6"
+              onChange={handleFiveStarRating}
+            />{" "}
+            Gym
+          </label>
+          <br />
         </form>
       </div>
 
       <h2>
         Showing Properties in{" "}
-        {hotelData1[0].location.substring(
+        {hotelData1.length>0 && hotelData1[0].location.substring(
           0,
           hotelData1[0].location.indexOf(",")
         )}
       </h2>
-      {hotelData1.map((item) => (
+      {hotelData1.length>0 && hotelData1.map((item) => (
         <div key={item._id} onClick={() => getHotelDetails(item)}>
           <Hotelcard
             image={item.images}

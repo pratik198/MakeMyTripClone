@@ -9,15 +9,14 @@ import Rating from "../HotelCard/Rating";
 
 function HotelDetails(props) {
   const location = useLocation();
-  const hotelDetail = location.state?.hotelDetail || "";
+  const hotelDetail = location?.state?.hotelDetail || "";
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const starRating = location.state.starRating1 || undefined;
-console.log(starRating)
- 
-var randomStarRating = getRandomNum();
-console.log(randomStarRating)
-  function getRandomNum(){
+  console.log(starRating);
 
+  var randomStarRating = getRandomNum();
+  console.log(randomStarRating);
+  function getRandomNum() {
     const a = Math.floor(Math.random() * (5 - 3 + 1)) + 3;
     return a;
   }
@@ -46,7 +45,6 @@ console.log(randomStarRating)
           <div className="first-section">
             <div className="hotel-image-font-pic">
               <img src={hotelDetail.images[currentImageIndex]} alt="Hotel" />
-
               <button onClick={handlePrevClick}>
                 <img src={Previous} alt="Previous" />
               </button>
@@ -61,11 +59,19 @@ console.log(randomStarRating)
               <img src={hotelDetail.images[2]} alt="Hotel" />
             </div>
           </div>
-          <div className="third-section">3rd section-images</div>
+          <div className="third-section">
+            <div className="book_section_details">hello</div>
+            <div className="footer_book">
+              <div className="footer__first">hello</div>
+              <div className="footer__first">hello</div>
+            </div>
+          </div>
         </div>
         <div className="hotel-star-rating">
           <h1>{hotelDetail.name}</h1>
-          <p>{starRating !== undefined?starRating:randomStarRating}star hotel</p>
+          <p>
+            {starRating !== undefined ? starRating : randomStarRating}star hotel
+          </p>
           <Rating star={hotelDetail.rating} />
         </div>
       </div>

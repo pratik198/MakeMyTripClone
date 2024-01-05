@@ -17,10 +17,10 @@ const Navigation = () => {
     return (
       <section className="navigation-wrapper">
         <div className="navigation">
-          <div to="/" className="nav-link">
+          <Link to="/" className="nav-link">
             <MdOutlineFlight className="icon" />
             <span>Flights</span>
-          </div>
+          </Link>
           <Link to="/hotels" className="nav-link">
             <RiHotelLine className="icon" />
             <span>Hotels</span>

@@ -8,7 +8,6 @@ import Main from "../Main/Main";
 const HotelInputBox = () => {
   const navigate = useNavigate();
   const [place, setPlace] = useState(null);
-  // const [day,setDay ] = useState(null);
   const [hotelData, setHotelData] = useState(null);
   function handelplace(e) {
     console.log(e.target.value);
@@ -16,14 +15,12 @@ const HotelInputBox = () => {
   }
   const getData = async () => {
     console.log("get data called");
-    // const ApisUrl =
-    //   `https://academics.newtonschool.co/api/v1/bookingportals/hotel?search={"location":"mumbai"}&day="Fri"`;
     const ApisUrl = `https://academics.newtonschool.co/api/v1/bookingportals/hotel?search={"location":"${place}","check_in":"${state.check_in}","check_out":"${state.check_out}"}&day="${day}"`;
     console.log(ApisUrl);
     try {
       const response = await fetch(ApisUrl, {
         headers: {
-          projectID: "f104bi07c490",
+        projectID: "f104bi07c490",
         },
       });
       console.log(response);
@@ -31,8 +28,8 @@ const HotelInputBox = () => {
       console.log(data);
       console.log(data?.data?.hotels);
       setHotelData(data?.data?.hotels);
-      navigate("/hotelpage", { state: { hotelData11: data?.data?.hotels } });
       if (response.ok) {
+        navigate("/hotelpage", { state: { hotelData11: data?.data?.hotels } });
       } else {
         console.error("Error while data fetching");
       }

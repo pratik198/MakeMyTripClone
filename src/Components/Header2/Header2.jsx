@@ -22,10 +22,10 @@ const Header2 = () => {
         </Link>
         <section className="navigation-wrapper-2">
           <div className="navigation">
-            <div className="nav-link active">
+            <Link to={"/flights"} className="nav-link active">
               <MdOutlineFlight className="icon" />
               <span>Flights</span>
-            </div>
+            </Link>
             <div className="nav-link">
               <RiHotelLine className="icon" />
               <span>Hotels</span>
