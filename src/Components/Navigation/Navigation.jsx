@@ -1,63 +1,99 @@
-import React from 'react'
-import './Navigation.scss';
-import { FaTrain } from 'react-icons/fa';
-import {
-    MdOutlineFlight,
-    MdOutlineMapsHomeWork,
-    MdDirectionsBus,
-    MdHiking,
-} from 'react-icons/md';
-import { RiHotelLine } from 'react-icons/ri';
-import { AiOutlineCar } from 'react-icons/ai';
-import { VscGraphLine } from 'react-icons/vsc';
-import { Link } from 'react-router-dom';
-
+import React from "react";
+import "./Navigation.scss";
 
 const Navigation = () => {
-    return (
-      <section className="navigation-wrapper">
-        <div className="navigation">
-          <Link to="/" className="nav-link">
-            <MdOutlineFlight className="icon" />
-            <span>Flights</span>
-          </Link>
-          <Link to="/hotels" className="nav-link">
-            <RiHotelLine className="icon" />
-            <span>Hotels</span>
-          </Link>
-          <div className="nav-link">
-            <MdOutlineMapsHomeWork className="icon" />
-            <span>Homestays</span>
+  return (
+    <section className="navigation-wrapper">
+      <div className="navigation">
+        <div className="img-container">
+          <div className="img-container-inner">
+            <img
+              src="https://imgak.mmtcdn.com/pwa_v3/pwa_commons_assets/desktop/B2CHeaderSprite.png"
+              alt="."
+            />
           </div>
-          <div className="nav-link">
-            <RiHotelLine className="icon" />
-            <span>Holiday Packages</span>
-          </div>
-          <Link to="/trains" className="nav-link">
-            <FaTrain className="icon" />
-            <span>Trains</span>
-          </Link>
-          <div className="nav-link">
-            <MdDirectionsBus className="icon" />
-            <span>Buses</span>
-          </div>
-          <div className="nav-link">
-            <AiOutlineCar className="icon" />
-            <span>Cabs</span>
-          </div>
-          <div className="nav-link">
-            <VscGraphLine className="icon" />
-            <span>Forex</span>
-          </div>
-          {/* <div className="nav-link">
-            <MdHiking className="icon" />
-            <span>Activities</span>
-          </div> */}
+          <span>Flights</span>
         </div>
-      </section>
-    );
-  };
-  
-//   export default Navigation;
-  
-export default Navigation
+
+        <div className="img-container">
+          <div className="img-container-inner">
+            <img
+              className="img__1"
+              src="https://imgak.mmtcdn.com/pwa_v3/pwa_commons_assets/desktop/B2CHeaderSprite.png"
+              alt="."
+            />
+          </div>
+          <span>Hotels</span>
+        </div>
+
+        <div className="img-container">
+          <div className="img-container-inner">
+            <img
+            className="img__2"
+              src="https://imgak.mmtcdn.com/pwa_v3/pwa_commons_assets/desktop/B2CHeaderSprite.png"
+              alt="."
+            />
+          </div>
+          <span>Villas</span>
+        </div>
+
+        <div className="img-container">
+          <div className="img-container-inner">
+            <img
+            className="img__3"
+              src="https://imgak.mmtcdn.com/pwa_v3/pwa_commons_assets/desktop/B2CHeaderSprite.png"
+              alt="."
+            />
+          </div>
+          <span>Holiday</span>
+        </div>
+
+        <div className="img-container">
+          <div className="img-container-inner">
+            <img
+            className="img__4"
+              src="https://imgak.mmtcdn.com/pwa_v3/pwa_commons_assets/desktop/B2CHeaderSprite.png"
+              alt="."
+            />
+          </div>
+          <span>Trains</span>
+        </div>
+
+        <div className="img-container">
+          <div className="img-container-inner">
+            <img
+            className="img__5"
+              src="https://imgak.mmtcdn.com/pwa_v3/pwa_commons_assets/desktop/B2CHeaderSprite.png"
+              alt="."
+            />
+          </div>
+          <span>Buses</span>
+        </div>
+
+        <div className="img-container">
+          <div className="img-container-inner">
+            <img
+              className="img__6"
+              src="https://imgak.mmtcdn.com/pwa_v3/pwa_commons_assets/desktop/B2CHeaderSprite.png"
+              alt="."
+            />
+          </div>
+          <span>Cabs</span>
+        </div>
+
+        <div className="img-container">
+          <div className="img-container-inner">
+            <img
+            className="img__7"
+              src="https://imgak.mmtcdn.com/pwa_v3/pwa_commons_assets/desktop/B2CHeaderSprite.png"
+              alt="."
+            />
+          </div>
+          <span>Forex</span>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Navigation;
