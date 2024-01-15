@@ -97,10 +97,12 @@ function FlightInput() {
                 <span>Jan'</span>
                 <span class="shortYear">24</span>
               </p>
-              <p  class="code_1" style={{paddingTop:"0px"}}>Friday</p>
+              <p class="code_1" style={{ paddingTop: "0px" }}>
+                Friday
+              </p>
             </div>
             <div className="inner_section_box_4">
-            <p>Return</p>
+              <p>Return</p>
               <p
                 data-cy="departureDate"
                 class="blackText font20 code lineHeight36"
@@ -109,20 +111,39 @@ function FlightInput() {
                 <span>Jan'</span>
                 <span class="shortYear">24</span>
               </p>
-              <p  class="code_1" style={{paddingTop:"0px"}}>Thursday</p>
+              <p class="code_1" style={{ paddingTop: "0px" }}>
+                Thursday
+              </p>
             </div>
             <div className="inner_section_box_last">
-            <p>Travellers & Class</p>
+              <p>Travellers & Class</p>
               <p
                 data-cy="departureDate"
                 class="blackText font20 code lineHeight36"
               >
                 <span class="font30 latoBlack">1 </span>
                 <span>Traveller</span>
-               
               </p>
-              <p  class="code_1" style={{paddingTop:"0px"}}>Economy/Premium Economy</p>
-           </div>
+              <p class="code_1" style={{ paddingTop: "0px" }}>
+                Economy/Premium Economy
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="last__div_input">
+          <div className="inner_div_fares_type">
+            <p>
+              Select A<br />
+              Fare Type:
+            </p>
+            <div className="inner_share_div">
+              <input type="radio" name="type" id="regular" />
+              <label htmlFor="oneway">
+                Regular
+                <br />
+                Fares
+              </label>
+            </div>
           </div>
         </div>
         <button className="submit-btn">Search</button>
