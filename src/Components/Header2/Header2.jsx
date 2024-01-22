@@ -13,6 +13,7 @@ import { RiHotelLine } from "react-icons/ri";
 import { AiOutlineCar } from "react-icons/ai";
 import { VscGraphLine } from "react-icons/vsc";
 import { Link } from "react-router-dom";
+
 const Header2 = () => {
   return (
     <section className="header2-wrapper">
@@ -63,7 +64,7 @@ const Header2 = () => {
         <div className="right-sec">
           <div className="login">
             <div className="user-name">
-              <h1>Manik</h1>
+              <h1></h1>
             </div>
             <img src={makemytrip2} className="cropped-img" alt="myTrip" />{" "}
             <span>Login or Create Account</span>

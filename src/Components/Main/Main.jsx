@@ -2,7 +2,7 @@ import React from 'react'
 import Header from '../Header/Header'
 import './Main.scss'
 import Navigation from '../Navigation/Navigation'
-import Offer from '../../Offer/Offer'
+import Offer from '../../Components/Offer/Offer'
 
 function Main() {
   return (
